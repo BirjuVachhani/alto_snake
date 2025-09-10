@@ -21,7 +21,7 @@ class AltosSnakeApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF87CEEB),
+          seedColor: Colors.red,
           brightness: Brightness.light,
         ),
         textTheme: GoogleFonts.poppinsTextTheme(),
