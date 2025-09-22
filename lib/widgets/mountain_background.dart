@@ -28,7 +28,8 @@ class MountainPainter extends CustomPainter {
         ],
       ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
 
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), backgroundPaint);
+    canvas.drawRect(
+        Rect.fromLTWH(0, 0, size.width, size.height), backgroundPaint);
 
     // Mountain layers
     _drawMountainLayer(canvas, size, 0.6, const Color(0xFF6A4C8D), 0.4);
@@ -36,7 +37,8 @@ class MountainPainter extends CustomPainter {
     _drawMountainLayer(canvas, size, 0.8, const Color(0xFFAC99C4), 0.2);
   }
 
-  void _drawMountainLayer(Canvas canvas, Size size, double baseHeight, Color color, double opacity) {
+  void _drawMountainLayer(Canvas canvas, Size size, double baseHeight,
+      Color color, double opacity) {
     final paint = Paint()
       ..color = color.withOpacity(opacity)
       ..style = PaintingStyle.fill;
@@ -49,7 +51,8 @@ class MountainPainter extends CustomPainter {
     for (int i = 0; i <= peaks; i++) {
       final x = (size.width / peaks) * i;
       final peakHeight = size.height * (baseHeight + (math.sin(i * 0.7) * 0.1));
-      final controlHeight = size.height * (baseHeight + (math.sin(i * 0.7 + 0.5) * 0.05));
+      final controlHeight =
+          size.height * (baseHeight + (math.sin(i * 0.7 + 0.5) * 0.05));
 
       if (i == 0) {
         path.lineTo(x, peakHeight);
