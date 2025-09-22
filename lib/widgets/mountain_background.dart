@@ -22,23 +22,23 @@ class MountainPainter extends CustomPainter {
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          const Color(0xFF87CEEB), // Sky blue
-          const Color(0xFFF0F8FF), // Alice blue
-          const Color(0xFFE6F3FF), // Light blue
+          const Color(0xFFC3AED6), // Light, dusky purple
+          const Color(0xFFD6CADD), // Very light purple
+          const Color(0xFFEBE2F2), // Almost white purple
         ],
       ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
-    
+
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), backgroundPaint);
 
     // Mountain layers
-    _drawMountainLayer(canvas, size, 0.6, const Color(0xFF8B9DC3), 0.4);
-    _drawMountainLayer(canvas, size, 0.7, const Color(0xFFA8B8D8), 0.3);
-    _drawMountainLayer(canvas, size, 0.8, const Color(0xFFC5D3ED), 0.2);
+    _drawMountainLayer(canvas, size, 0.6, const Color(0xFF6A4C8D), 0.4);
+    _drawMountainLayer(canvas, size, 0.7, const Color(0xFF8B72A8), 0.3);
+    _drawMountainLayer(canvas, size, 0.8, const Color(0xFFAC99C4), 0.2);
   }
 
   void _drawMountainLayer(Canvas canvas, Size size, double baseHeight, Color color, double opacity) {
     final paint = Paint()
-      ..color = color.withValues(alpha: opacity)
+      ..color = color.withOpacity(opacity)
       ..style = PaintingStyle.fill;
 
     final path = Path();
@@ -50,7 +50,7 @@ class MountainPainter extends CustomPainter {
       final x = (size.width / peaks) * i;
       final peakHeight = size.height * (baseHeight + (math.sin(i * 0.7) * 0.1));
       final controlHeight = size.height * (baseHeight + (math.sin(i * 0.7 + 0.5) * 0.05));
-      
+
       if (i == 0) {
         path.lineTo(x, peakHeight);
       } else {
